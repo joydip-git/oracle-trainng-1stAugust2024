@@ -21,17 +21,21 @@ INSERT INTO products (
 */
 
 set SERVEROUTPUT ON;
-declare
-   l_computed_price DECIMAL := 0; 
-   l_price DECIMAL :=0;
-begin
-    select price into l_price from products where product_id=100;
-    if l_price>=100000 then
-    l_computed_price := l_price*2;
-    end if;
 
-   dbms_output.put_line('calculated price is: ' || l_computed_price);     
-   
-end;
+DECLARE
+    l_computed_price DECIMAL := 0;
+    l_price          DECIMAL := 0;
+BEGIN
+    SELECT
+        price
+    INTO l_price
+    FROM
+        products
+    WHERE
+        product_id = 100;
 
-
+    IF l_price >= 100000 THEN
+        l_computed_price := l_price * 2;
+    END IF;
+    dbms_output.put_line('calculated price is: ' || l_computed_price);
+END;
