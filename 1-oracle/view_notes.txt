@@ -1,0 +1,16 @@
+create [or replace] view view_name [(column_aliases)] as
+	query
+[with read only]
+[with check option]
+
+PL/SQL data types:
+a. scalar type: single value
+ex: number, boolean, character and datetime
+
+number: 
+
+b. composite type: multiple values
+ex: record and collection
+
+
+
