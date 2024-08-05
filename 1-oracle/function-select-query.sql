@@ -1,4 +1,4 @@
-/*
+
 CREATE OR REPLACE FUNCTION get_product_statistics (
     isbn_number NUMBER
 ) RETURN NUMBER IS
@@ -14,7 +14,8 @@ BEGIN
 
     RETURN l_product_price;
 END;
-*/
+
+/*
 set serveroutput on;
 
 DECLARE
@@ -23,3 +24,4 @@ BEGIN
     v_return := get_product_statistics(1);
     dbms_output.put_line(v_return);
 END;
+*/
