@@ -1,0 +1,11 @@
+cursor: it is a pointer to the result of a query
+
+implicit: select ino, insert , delete, update etc. 
+
+SQL%ROWCOUNT, SQL%ISOPEN, SQL%FOUND, SQL%NOTFOUND etc.
+
+exceptions: NO_DATA_FOUND, TOO_MANY_ROWS etc.
+
+cursor variable:
+to deckare a cursor variable, use the "ref cursor" data type
+strong typed cursor and weak typed cursor.
