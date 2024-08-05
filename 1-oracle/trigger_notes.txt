@@ -1,0 +1,11 @@
+alter table categories
+add product_count number default 0;
+
+select * from categories;
+select * from products;
+update categories set product_count =4 where category_id=1;
+update categories set product_count =3 where category_id=3;
+
+execute add_product(102,'iphone15',150000,'new mobile from apple',2);
+update categories set product_count = product_count+1 where category_id=2;
+update categories set product_count = product_count-1 where category_id=3;
