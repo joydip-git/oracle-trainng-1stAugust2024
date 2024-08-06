@@ -1,0 +1,72 @@
+Oracle PL/SQL:
+1. What is PL/SQL
+2. How it gets executed?
+3. Data Types
+4. Variables (constant)
+5. Comments
+
+Conditional statements/controls:
+1. if then
+2. case
+3. null statement
+
+loops:
+1. Loop
+2. fro loop
+3. while loop
+4. continue
+
+select
+1. PL/SQL select into
+
+PL/SQL records
+PL/SQl cursors
+1. what is cursor
+2. cursor with loop
+3. cursor with for loop
+4. cursor with parameters
+5. ref cursor and cursror variable, sys_refcursor
+
+PL/SQL functions
+PL/SQL procedures
+1. what is procedure
+2. paraneters: IN, OUT, INOUT
+3. implicit statement results
+
+PL/SQL Triggers
+1. what is trigger
+2. row level and statement level triggers
+3. "instead of" trigger
+4. drop triggers
+
+PL/SQL exceptions
+
+instead of tigger:
+it allows you update the data in tables via their view which can't be modified directly through DML statements
+when you try to apply insert, update or delete type of DML statements on an non-updatable view, oracle generally issues an error. 
+If that view has an "instead of" trigger, it will automatically skip the DML statement and execute other DML statements instead.
+Note: 
+1. this trigger is fired for each row of the view that is gettng modified.
+2. this trigger is created for a view ONLY. you can't create this trigger for a table.
+syntax:
+create or replace trigger <tiggername>
+instead of {insert|update|delete}
+on view_name
+for each row
+begin
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

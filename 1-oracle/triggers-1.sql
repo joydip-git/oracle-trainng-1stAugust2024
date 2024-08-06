@@ -50,7 +50,7 @@ WHERE
     isbn = 104;
     
     update products set products.category_id=3 where products.isbn=103;
-
+select * from products;
 SELECT
     *
 FROM

@@ -1,0 +1,18 @@
+set serveroutput on;
+
+DECLARE
+    l_prod_name products.product_name%TYPE;
+BEGIN
+    --<exection-code>
+    SELECT product_name INTO l_prod_name 
+    FROM products WHERE price >11000;
+    dbms_output.put_line(l_prod_name);
+    
+        --exception handling
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('no product with id: 190 not found');
+        
+         WHEN too_many_rows THEN
+        dbms_output.put_line('not possible to store multiple names in l_prod_name');
+END;

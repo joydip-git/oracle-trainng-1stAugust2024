@@ -1,0 +1,30 @@
+create or replace function get_price(isbn_val number)
+return number
+as
+e_high_price exception;
+PRAGMA exception_init (e_high_price,-20001);
+l_prod_price products.price%type;
+begin
+select price into l_prod_price from products where isbn = isbn_val;
+if l_prod_price>100000 then
+    raise e_high_price;
+    end if;
+--    dbms_output.put_line(l_prod_price);
+    return l_prod_price;
+    
+    
+end;
+
+--anonymous block executing the function
+set serveroutput on;
+declare 
+l_res number;
+begin
+    l_res := get_price(102);
+    dbms_output.put_line(l_res);
+    
+    exception 
+     when others then
+        dbms_output.put_line('exception occurred');
+end;
+

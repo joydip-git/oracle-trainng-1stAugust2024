@@ -9,3 +9,15 @@ update categories set product_count =3 where category_id=3;
 execute add_product(102,'iphone15',150000,'new mobile from apple',2);
 update categories set product_count = product_count+1 where category_id=2;
 update categories set product_count = product_count-1 where category_id=3;
+
+create or replace trigger <trigger_name>
+{before|after} <triggering_event> ON table_name
+[for each row]
+[follows|precedes another_trigger_name]
+[enable|disable]
+[when condition]
+declare
+<local_variables>
+begin
+<exeutable-code>
+end;
