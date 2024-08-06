@@ -1,0 +1,4 @@
+1. source code [*.java]=> Java Compiler => byte code [*.class]
+
+run-time:
+2. byte code => Just-in-Time compiler (JVM) => machine-level language code
