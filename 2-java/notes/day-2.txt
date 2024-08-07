@@ -42,5 +42,58 @@ Main:
 	2. create an array to store references of objects
 	3. iterate through the array and calculate the salary of each and print the same with name.
 
+abstract class DataAccess{
+  String path;
+	public DataAccess(){}
+	public DataAccess(String path){ this.path = path;}
+
+	abstract String getData();
+}
+
+class DataAccessFromFile extends DataAccess{
+	getData(){}
+}
+
+class DataAccessFromDb{
+	getData(){}
+}
+
+oustandingpersonapp:
+professor =>
+	data: name, bookspublished
+	method: to return boolean indicating whether a professor is outstanding or not
+
+student =>
+	data: name, marks
+	method: to return boolean indicating whether a student is outstanding or not
+
+Main:
+	1. create objects of professor and student (minimum 2 each)
+	2. create an array to store references of objects
+	3. iterate through the array and print ONLY the name of outstanding guys
+
+shapeareaapp:
+
+circle:
+	data: radius
+	method: returns calculated area of circle
+
+triangle:
+	data: base and height
+	method: returns calculated area of triangle
+
+Main:
+	1. create objects of circle and triangle
+	2. create an array to store references of objects
+	3. iterate through the array and print the area of the shapes
+
+
+
+
+
+
+
+
+
 
 
