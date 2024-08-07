@@ -2,3 +2,48 @@
 
 run-time:
 2. byte code => Just-in-Time compiler (JVM) => machine-level language code
+
+
+calculation menu:
+1. add
+2. subtract
+...
+
+enter choice[1/2/3/4]: 1
+enter first value: 12
+enter second value: 13
+result: 25
+
+would you like to continue[y/Y/n/N]:y
+
+calculation menu:
+1. add
+2. subtract
+...
+
+enter choice[1/2/3/4]: 1
+enter first value: 12
+enter second value: 13
+result: 25
+
+would you like to continue[y/Y/n/N]:n
+
+Scanner sc = new Scanner();
+sc.nextInt()/next()/next().charAt(0);
+
+
+1. data types
+2. control flow statements: switch...case, do...while, while, if, if..else, for, foreach etc.
+3. operators:
+	
+
+data types:
+primitive:
+and non-primitive: 
+	built-in			use-defined
+
+class:
+
+
+
+

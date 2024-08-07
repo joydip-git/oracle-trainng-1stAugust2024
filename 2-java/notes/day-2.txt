@@ -1,0 +1,46 @@
+class access specifiers: public and private
+class member access specifiers: public, private and protected
+
+class Person{
+	private String name;
+	private String departmentName;
+	public Person(){}
+	public Person(String name, String deptName){ 
+		this.name = name;
+		departmentName = deptName;
+	}
+	public void setDepartmentName(String deptName){
+		this.departmentName = deptName;
+	}
+	public String getDepartmentName(){
+		return this.departmentName;
+	}
+}
+
+
+
+Person p = new Person("anil",null);
+p.getDepartmentName();
+
+getter and setter:
+
+
+class Child extends Base{
+	
+}
+
+
+developer: 
+	data => name, id, basic, da, hra, incentive, totalsalary
+	methods: calculateSalary(), no arguments, no return value
+hr:
+	data => name, id, basic, da, hra, gratuity, totalsalary 
+	methods: calculateSalary(), no arguments, no return value
+
+Main:
+	1. create objects of developer and hr (minimum 2 each)
+	2. create an array to store references of objects
+	3. iterate through the array and calculate the salary of each and print the same with name.
+
+
+

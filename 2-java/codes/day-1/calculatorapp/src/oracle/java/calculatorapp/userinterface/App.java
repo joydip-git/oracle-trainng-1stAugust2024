@@ -35,5 +35,7 @@ public class App {
 			toContinue = CalculatorUtility.askTocontinue(scanner);
 			
 		} while (toContinue != 'n');
+		
+		scanner.close();
 	}	
 }
