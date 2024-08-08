@@ -1,3 +1,50 @@
 1. generic
 2. collections
 3. reflection
+4. singleton pattern => single instance of an entity
+5. association between classes
+
+assocation: (has-a)
+	a. association
+	b. aggregation
+	c. composition
+
+Building <--> Room
+1...M				 1...1
+
+
+Iterable<T> (method: Iterator<T> iterate();)
+Collection<E>
+
+
+Collection types:
+
+Iterable interface
+	Collection interface		
+		Set interface
+			=> HashSet class
+			=> SortedSet interface
+				 => NavigableSet interface
+						=> TreeSet class
+
+Iterable interface
+	Collection interface		
+		List interface
+			ArrayList
+			
+Iterable interface
+	Collection interface	
+		Queue
+			=> PriorityQueue class
+			=> Dequeue
+					=> LinkedList
+
+Map interface
+	=> HashMap class	
+	=> SortedMap interface
+		=> TreeMap class
+
+	
+
+
+
