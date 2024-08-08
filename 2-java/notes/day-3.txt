@@ -43,6 +43,18 @@ Map interface
 	=> HashMap class	
 	=> SortedMap interface
 		=> TreeMap class
+class Entry{
+		K key;
+		V v;
+		
+	}
+class Map<K,V>{
+	
+	Set<Entry<k,v>> entrySet = new ...();
+	public Set<Entry<k,v>> entrySet(){}
+}
+
+"Java is a technlogy. I "
 
 	
 
