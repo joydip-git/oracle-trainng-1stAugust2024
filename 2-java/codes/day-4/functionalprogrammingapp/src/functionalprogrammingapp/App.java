@@ -68,20 +68,22 @@ public class App {
 			return number < 5;
 		};
 
-		List<Integer> input = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-		List<Integer> result = filter(input, logic);
-		for (Integer intValue : result) {
-			System.out.println(intValue);
+		List<Integer> input = List.of(1, 4, 2, 3);
+		sortValues(input, (a, b) -> a - b);
+		for (Integer value : input) {
+			System.out.println(value);
 		}
-
-		List<String> names = List.of("anil", "sunil", "joy");
-		Logic<String> filterNames = (name) -> name.contains("n");
-		List<String> filteredNames = filter(names, filterNames);
-		for (String name : filteredNames) {
-			System.out.println(name);
-		}
-
-		Predicate<Integer> p = null;
+		/*
+		 * List<Integer> result = filter(input, logic); for (Integer intValue : result)
+		 * { System.out.println(intValue); }
+		 * 
+		 * List<String> names = List.of("anil", "sunil", "joy"); Logic<String>
+		 * filterNames = (name) -> name.contains("n"); List<String> filteredNames =
+		 * filter(names, filterNames); for (String name : filteredNames) {
+		 * System.out.println(name); }
+		 * 
+		 * Predicate<Integer> p = null;
+		 */
 	}
 
 	static <E extends Object> List<E> filter(List<E> input, Logic<E> logic) {
@@ -91,5 +93,17 @@ public class App {
 				output.add(value);
 		}
 		return output;
+	}
+
+	static <E> void sortValues(List<E> input, CompareLogic<E> comp) {
+		for (int i = 0; i < input.size(); i++) {
+			for (int j = i + 1; j < input.size(); j++) {
+				if (comp.compare(input.get(i), input.get(j)) > 0) {
+					E temp = input.get(i);
+					input.set(i, input.get(j));
+					input.set(j, temp);
+				}
+			}
+		}
 	}
 }
