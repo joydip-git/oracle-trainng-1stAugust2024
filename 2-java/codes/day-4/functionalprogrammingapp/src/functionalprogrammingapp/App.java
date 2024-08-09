@@ -73,6 +73,8 @@ public class App {
 		for (Integer value : input) {
 			System.out.println(value);
 		}
+		
+		Stream<Integer>
 		/*
 		 * List<Integer> result = filter(input, logic); for (Integer intValue : result)
 		 * { System.out.println(intValue); }

@@ -9,3 +9,21 @@ Returns a composed function that first applies this function to its input, and t
 
 compose():
 Returns a composed function that first applies the BEFORE function to its input, and then applies this function to the result.If evaluation of either function throws an exception, it is relayed tothe caller of the composed function.
+
+Stream<T> =>
+	a. Intermediate operations
+	b. Terminal operations
+
+interface List<E>{
+
+	default Stream<T> stream(){
+		return new ...();
+	}
+}
+
+
+
+
+
+
+
