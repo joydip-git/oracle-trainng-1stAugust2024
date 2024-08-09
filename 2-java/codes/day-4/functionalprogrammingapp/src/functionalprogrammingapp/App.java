@@ -84,7 +84,7 @@ public class App {
 		Predicate<Integer> p = null;
 	}
 
-	static <E> List<E> filter(List<E> input, Logic<E> logic) {
+	static <E extends Object> List<E> filter(List<E> input, Logic<E> logic) {
 		List<E> output = new ArrayList<E>();
 		for (E value : input) {
 			if (logic.apply(value))
