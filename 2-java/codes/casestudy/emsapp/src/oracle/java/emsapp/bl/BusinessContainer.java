@@ -1,7 +1,6 @@
 package oracle.java.emsapp.bl;
 
-import oracle.java.emsapp.dal.DaoContainer;
-import oracle.java.emsapp.dal.EmployeeDao;
+import oracle.java.emsapp.repository.RepositoryContainer;
 
 public class BusinessContainer {
 
@@ -18,6 +17,6 @@ private static BusinessContainer container;
 		return container;
 	}
 	public EmployeeBusinessComponent create() {
-		return new EmployeeBusinessComponent(DaoContainer.instantiate().create());
+		return new EmployeeBusinessComponent(RepositoryContainer.instantiate().create());
 	}
 }

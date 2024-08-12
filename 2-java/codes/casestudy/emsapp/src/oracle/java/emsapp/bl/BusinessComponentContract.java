@@ -1,11 +1,11 @@
 package oracle.java.emsapp.bl;
 
-import oracle.java.emsapp.entities.Employee;
+import java.util.List;
 
-public interface BusinessComponentContract {
-	boolean insert(Employee employee);
-	boolean modify(Employee employee);
+public interface BusinessComponentContract<T> {
+	boolean insert(T record);
+	boolean modify(T record);
 	boolean remove(int id);
-	Employee[] fetchtAll(int sortChoice);
-	Employee fetchById(int id);
+	List<T> fetchtAll(int sortChoice);
+	T fetchById(int id);	
 }

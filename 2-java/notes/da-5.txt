@@ -1,0 +1,39 @@
+JDBC: Java DataBase Connectivity
+It is a set of APIs to connect to database and execute query.
+JDBC APIs uses JDBC Drivers to interact with database.
+
+JDBC APIs:
+
+Interfaces:
+
+1. Driver interface
+2. Connection interface
+3. Statement interface => query (select, insert, update, delete etc.)
+3. PreparedStatement interface => parameterized query (select, insert, update, delete etc.)
+4. CallableStatement interface => stored procedure, function, tigger etc,
+5. ResultSet interface
+....
+
+Classes:
+
+1. DriverManager class
+2. Types
+3. Blob
+4. Clob etc.
+
+
+JDBC Driver => helps you interact with database
+Thin Driver => 
+
+
+
+
+
+
+
+
+
+
+
+
+

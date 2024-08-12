@@ -16,10 +16,15 @@ Stream<T> =>
 
 interface List<E>{
 
-	default Stream<T> stream(){
+	default Stream<E> stream(){
 		return new ...();
 	}
 }
+
+class ArrayList<E>{}
+
+List<Int> numbers = new ArrayList<Int>();
+numbers.stream().
 
 
 
