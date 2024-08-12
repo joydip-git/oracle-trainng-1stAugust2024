@@ -31,3 +31,8 @@ begin
     select count(product_name) into l_product_count from products where category_id=categoryid;
     return l_product_count;
 end;
+
+alter table products
+add description varchar2(255);
+
+select product_name, description from products;
