@@ -1,5 +1,6 @@
 package com.java.unittests;
 
+import java.io.FileNotFoundException;
 //import java.io.Closeable;
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,7 +14,7 @@ public class ProductDataAccess {
     // select * from products where pk_value=?
     // method returns an object of Product class
 
-    public Product getProductByISBN(int isbn) throws Exception, IOException, SQLException {
+    public Product getProductByISBN(int isbn) throws DaoException {
         if (isbn > 0) {
             Connection connection = null;
             PreparedStatement statement = null;
@@ -41,14 +42,33 @@ public class ProductDataAccess {
                     product.setCategoryId(records.getInt("CID"));
                 }
                 return product;
+            } catch (FileNotFoundException e) {
+                DaoException ex = new DaoException(e.getMessage(), e);
+                throw ex;
+            } catch (SQLException e) {
+                DaoException ex = new DaoException(e.getMessage(), e);
+                throw ex;
+            } catch (ClassNotFoundException e) {
+                DaoException ex = new DaoException(e.getMessage(), e);
+                throw ex;
             } catch (IOException e) {
-                throw e;
+                DaoException ex = new DaoException(e.getMessage(), e);
+                throw ex;
             } catch (Exception e) {
-                throw e;
+                DaoException ex = new DaoException(e.getMessage(), e);
+                throw ex;
             } finally {
-                DaoUtility.closeConnection(connection);
+                try {
+                    DaoUtility.closeConnection(connection);
+                } catch (SQLException e) {
+                    DaoException ex = new DaoException(e.getMessage(), e);
+                    throw ex;
+                } catch (Exception e) {
+                    DaoException ex = new DaoException(e.getMessage(), e);
+                    throw ex;
+                }
             }
         } else
-            throw new Exception(Constants.INCORRECT_ISBN_MESSAGE);
+            throw new DaoException(Constants.INCORRECT_ISBN_MESSAGE);
     }
 }

@@ -21,15 +21,15 @@ public class ProductDataAccessTest {
     }
 
     @Test
-    public void testGetProductByISBNPositive() throws Exception {
+    public void testGetProductByISBNPositive() throws DaoException {
         Product actual = dataAccess.getProductByISBN(102);
         Product expected = new Product(102, "iphone15", 43, 150000, null, 2);
 
         assertEquals(expected, actual);
     }
 
-    @Test(expected = Exception.class)
-    public void testGetProductByISBNExceptionFlow() throws Exception {
+    @Test(expected = DaoException.class)
+    public void testGetProductByISBNExceptionFlow() throws DaoException {
         dataAccess.getProductByISBN(0);
     }
 
@@ -37,7 +37,7 @@ public class ProductDataAccessTest {
     public void testGetProductByISBNException() {
         try {
             dataAccess.getProductByISBN(-1);
-        } catch (Exception e) {
+        } catch (DaoException e) {
             assertEquals(
                     Constants.INCORRECT_ISBN_MESSAGE,
                     e.getMessage());

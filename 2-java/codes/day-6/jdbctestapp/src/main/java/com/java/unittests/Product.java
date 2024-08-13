@@ -116,4 +116,10 @@ public class Product {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Product [isbn=" + isbn + ", productName=" + productName + ", productId=" + productId + ", price="
+                + price + ", description=" + description + ", categoryId=" + categoryId + "]";
+    }
+
 }
