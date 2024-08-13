@@ -10,3 +10,5 @@
 6. once unit test case passes, call the method from main method and print the values
 7. handle exceptions
 8. use try...with..resources for ProductDataAccess class if necessary
+
+note: if possible create a function/procedure in Oracle to write that query
