@@ -1,6 +1,5 @@
 package com.java.unittests;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,7 +21,7 @@ public class DaoUtility {
         dbProperties.load(reader);
     }
 
-    public void loadDriver() throws ClassNotFoundException, Exception {
+    public static void loadDriver() throws ClassNotFoundException, Exception {
         if (dbProperties != null) {
             String driver = dbProperties.getProperty("driver");
             if (driver != null && driver != "")
@@ -33,7 +32,7 @@ public class DaoUtility {
             throw new Exception("db configuration not loaded from properties file");
     }
 
-    public Connection createConnection() throws SQLException, Exception {
+    public static Connection createConnection() throws SQLException, Exception {
         if (dbProperties != null)
             return DriverManager.getConnection(
                     dbProperties.getProperty("url"),
@@ -41,5 +40,12 @@ public class DaoUtility {
                     dbProperties.getProperty("password"));
         else
             throw new Exception("db configuration not loaded from properties file");
+    }
+
+    public static void closeConnection(Connection connection) throws SQLException, Exception {
+        if (connection != null)
+            connection.close();
+        else
+            throw new Exception("connection was not initialized at all");
     }
 }
