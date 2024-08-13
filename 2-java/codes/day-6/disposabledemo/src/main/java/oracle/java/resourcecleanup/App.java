@@ -16,8 +16,11 @@ public class App {
         // }
 
         // try with resource
-        try (ResourceConsumer consumer = new ResourceConsumer()) {
-            consumer.readData();
+        try (
+                ResourceConsumer consumer1 = new ResourceConsumer("C1");
+                ResourceConsumer consumer2 = new ResourceConsumer("C2")) {
+            consumer1.readData();
+            consumer2.readData();
         } catch (Exception e) {
             e.printStackTrace();
         }

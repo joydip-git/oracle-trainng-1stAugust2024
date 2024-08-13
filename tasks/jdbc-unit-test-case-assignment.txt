@@ -1,0 +1,12 @@
+1. create a maven application
+2. add dependency for ojdbc11
+3. create a class ProductDataAccess with the following method:
+ - method name: your choice
+ - work: it returns all the product objects grouped by category name
+ - return type: decide
+
+4. create dao utility class with static methods for common operations
+5. create a unit test case file (ProductDataAccessTest) and write test case to test the return value
+6. once unit test case passes, call the method from main method and print the values
+7. handle exceptions
+8. use try...with..resources for ProductDataAccess class if necessary

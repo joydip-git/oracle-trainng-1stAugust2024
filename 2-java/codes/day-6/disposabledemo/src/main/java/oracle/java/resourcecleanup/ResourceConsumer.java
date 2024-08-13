@@ -4,6 +4,11 @@ import java.io.FileReader;
 
 public class ResourceConsumer implements AutoCloseable {
     private FileReader reader;
+    private String name;
+
+    public ResourceConsumer(String name) {
+        this.name = name;
+    }
 
     public void readData() {
         try {
@@ -16,7 +21,7 @@ public class ResourceConsumer implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        System.out.println("disposing...");
+        System.out.println("disposing..." + name);
         reader.close();
     }
 }
