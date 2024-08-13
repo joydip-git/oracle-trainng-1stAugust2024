@@ -1,0 +1,22 @@
+exceptions:
+						Thorwable
+		Exception					Error (unchecked exceptions)
+[Checked and unchecked]				StackOverflowError
+												OutofMemoryError
+												VirtualMachineError
+IOException
+SQLException
+ClassNotFoundException
+									RuntimeException (unchecked)
+										AritmeticException
+										NullPointerException
+										IndexOutOfBoundException
+connect() throws ClassNotFoundException{									.....
+	class.forName("class-name");
+}
+For the purposes of compile-time checking of exceptions, Throwable and any subclass of Throwable that is NOT also a subclass of either RuntimeException or Error areregarded as checked exceptions. 
+
+main(){ 
+try{connect();}
+catch(ClassNotFoundException e){}
+}
