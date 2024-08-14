@@ -13,6 +13,21 @@ containers: (interfaces)
 1. BeanFactory => XmlBeanFactory
 2. ApplicationContext => ClassPathXmlApplicationContext
 
+Beans lifecycle=> 
+	a. singleton
+	b. prototype
+	c. request (with web - http)
+	d. session (for a single HTTP session)
+	e. global-session
+
+
+configuratin for beans:
+	1. XML file
+	2. Annotation-based
+	3. component scan
+	4. Code
+	
+
 
 
 

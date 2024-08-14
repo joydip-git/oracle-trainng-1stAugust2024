@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="anilBean" class="oracle.java.spingapps.Person">
+        <property name="firstName" value="Anil" />
+        <property name="lastName" value="Kumar" />
+        <property name="id" value="1" />
+    </bean>
+
+    <bean id="sunilBean" class="oracle.java.spingapps.Person">
+        <constructor-arg value="sunil" />
+        <constructor-arg value="1" type="int" />
+        <constructor-arg value="kumar" type="String" />
+    </bean>
+
+    <bean id="daoBean" class="oracle.java.spingapps.Dao">
+    </bean>
+
+    <bean id="boBean" class="oracle.java.spingapps.Bo">
+        <constructor-arg ref="daoBean" />
+    </bean>
+    <!-- <bean id="boBean" class="oracle.java.spingapps.Bo">
+        <constructor-arg name="dao">
+            <bean id="daoBean" class="oracle.java.spingapps.Dao">
+            </bean>
+        </constructor-arg>
+    </bean> -->
+
+    <!-- <bean id="daoBean" class="oracle.java.spingapps.Dao">
+    </bean>
+    <bean id="boBean" class="oracle.java.spingapps.Bo">
+        <constructor-arg name="dao" type="oracle.java.spingapps.DaoContract">
+            <idref bean="daoBean" />
+        </constructor-arg>
+    </bean> -->
+
+</beans>
