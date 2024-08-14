@@ -1,0 +1,21 @@
+Spring framework:
+
+DI
+JdbcTemplate
+
+DI and IOC in Spring:
+-----------------------------
+Inversion of Control Container => IoC container
+1. create an XML file and provide the "bean" configuration
+2. IoC container will read the configuration from the XML file.
+
+containers: (interfaces)
+1. BeanFactory => XmlBeanFactory
+2. ApplicationContext => ClassPathXmlApplicationContext
+
+
+
+
+
+
+
