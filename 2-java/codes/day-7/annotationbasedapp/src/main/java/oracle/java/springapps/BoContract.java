@@ -1,5 +1,5 @@
 package oracle.java.springapps;
 
-public interface BoContract {
-    String fetchData();
+public interface BoContract<T> {
+    T fetchData();
 }
