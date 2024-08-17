@@ -1,0 +1,117 @@
+http://www.oracle.com/myapp/home/index
+
+route pattern => myapp/{controller}/{action}/{value}
+
+
+
+
+HATEOAS
+
+WSDL => Web Service Description Language 
+class ProductService{
+	getProducts(){
+		List<Product> products= ....
+	}
+}
+<?xml version...>
+<soap>
+	<envelope>
+		<header></header>
+		<body>
+			<products>
+		<product id="">
+			
+		</product>
+</products>
+		</body>
+</soap>
+
+main(){
+		IService svc = new ProductServiceClient();
+		//http://www.oracle.com/myapp/productsvc?op=getProducts
+	   List<Product> products = svc.getProducts();
+}
+
+HTTP GET
+http://www.oracle.com/api/products => getProucts
+
+HTTP GET
+http://www.oracle.com/api/products/{id} => getProduct(int id)
+
+HTTP POST
+http://www.oracle.com/api/products => addProduct(Product p)
+
+HTTP PUT
+http://www.oracle.com/api/products/{id} => updateProduct(int id,Product p)
+
+HTTP DELETE
+http://www.oracle.com/api/products/{id} => deleteProduct(int id)
+
+mapper layer map request => methods
+
+class ProductService{
+	getProducts(){
+		List<Product> products= ....
+	}
+	getProduct(int id){ return ...}
+	addProduct(Product p){...}
+	updateProduct(int id,Product p){...}
+	deleteProduct(int id){...}
+}
+
+
+Java EE/Jakarta EE:
+-------------------------------
+1999 => J2EE => 2006 (Java EE)
+2017 => Eclipse Foundation => Jakarta EE
+
+1. specification => JSR
+2. reference implementation => Glassfish
+3. tests => TCKs (Technology Compatability Kits)
+
+JSRs, Glassfish and TCK
+
+JCP (Java Community Process)
+
+Elcipse Foundation Specification Process (EFSP)
+is an extension Eclipse Development Process
+
+for a new feature to be introduced, you need to create JSR or Java Specification Request.
+ex: JSR - 339 or JAX-RS
+
+interfaces
+javax.rs.*
+
+jakarta.rs.*
+
+Apache CXF
+Jersey => 
+Springboot
+RestEasy
+...
+
+mvn archetype:generate -DarchetypeGroupId=org.glassfish.jersey.archetypes -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeVersion=3.1.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
