@@ -1,0 +1,15 @@
+{
+  "name": "sample-ts-app",
+  "version": "1.0.0",
+  "description": "simple ts app",
+  "scripts": {
+    "compile": "tsc",
+    "compile:w": "tsc -w",
+    "app": "node ./dist/index.js"
+  },
+  "author": "joydip",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

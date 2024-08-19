@@ -36,6 +36,55 @@ step-2: executaion stage
 a. data typification
 b. static type-checking
 
+transpiler:
+JS => 
+	ES6+ JS code => Vanilla JS code (JS with <ES6)
+	transpiler: babel
+
+TS => 
+	ES6+ TS code => Vanilla JS code (JS with <ES6)
+	transpiler: typescript compiler (tsc)
+
+Node JS: c:\program files\nodejs
+
+donwload and install any package:
+package managers:
+
+Node Package Manager (NPM => automatically shipped with Node JS)
+bower, yarn, pnpm etc,
+
+install any package:
+a. globally: >npm install/i <package-name> --location=global
+
+global installation path:
+C:\Users\<user-name>\AppData\Roaming\npm
+
+b. local installation (application specific)
+
+i. development level dependency
+app-dir>npm install/i <package-name> -D
+or (depricated)
+app-dir>npm install/i <package-name> --save-dev
+
+ii. complete (dev+prod level dependency)
+app-dir>npm install/i <package-name>
+or (depricated)
+app-dir>npm install/i <package-name> --save
+
+dependency lists:
+package.json
+
+a. manual creation
+b. command: >npm init 
+or >npm init --yes
+
+
+tsconfig.json
+>.\node_modules\.bin\tsc --init
+
+
+
+
 
 
 
