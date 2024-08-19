@@ -9,3 +9,35 @@ When an HTML file is loaded in the browser window, series of objects representin
 chrome and chrome-kit browsers: V8 (open source)
 firefox: spidermonkey
 safari: JS Core
+
+JS basics:
+1. data types
+	string, number, bool, function, object
+	NaN, undefined, null, Infinity, var etc. => keywords
+2. control flow statements
+3. operators
+
+
+whenever a function is called/invoked, an objecr is created in JS untime: Function Execution Context Object (FEC)
+
+function-name() => this will be connected to global/window
+ref-var.function-name() => this will be connected to the 'ref-var'
+new function-name() => this will be connected to a new object
+
+
+JS execution:
+step-1: preparation stage
+	JS engine looks for variable and function declaration and hoist them
+	note: function expression is not hoisted
+
+step-2: executaion stage
+	JS engine takes care of assignment and invocations
+
+a. data typification
+b. static type-checking
+
+
+
+
+
+
