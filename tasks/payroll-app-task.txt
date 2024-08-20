@@ -1,0 +1,29 @@
+payroll-app
+	src
+		models (folder)
+			employee.ts
+			developer.ts
+			hr.ts
+
+		repository (folder)
+			products.ts => will contain the employee type blank array
+		
+		manager (folder)
+			business-manager.ts (interface file)
+				=> BusinessManager (interface)
+					=> abstract methods:
+						
+						1. add(e:Employee):boolean => this methods helps to add an employee in the array (in the repository)	
+						2. fetchAll():Employee[] => this method returns all the employees from the array					
+
+			product-business-manager.ts (class file, the class implements the interface)
+				=> ProductBusinessManager (class which implements the methods of the interface)
+					=> implementations of the interface methods
+		
+		index.ts
+			=> call the business clas methods from here 
+
+	index.html
+	package.json
+	package-lock.json
+	tsconfig.json

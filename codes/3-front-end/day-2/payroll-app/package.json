@@ -1,0 +1,17 @@
+{
+  "name": "payroll-app",
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "tsc",
+    "compile:w": "tsc --watch",
+    "create-ts-config": "tsc --init",
+    "app": "node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "joydip",
+  "license": "ISC",
+  "description": "payroll application",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
