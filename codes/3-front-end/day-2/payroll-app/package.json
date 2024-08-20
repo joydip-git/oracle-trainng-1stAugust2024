@@ -13,5 +13,8 @@
   "description": "payroll application",
   "devDependencies": {
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "requirejs": "^2.3.7"
   }
 }

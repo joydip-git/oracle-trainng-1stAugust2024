@@ -4,6 +4,11 @@
     "outDir": "dist",
     "target": "ES5",
     "strict": true,
-    "forceConsistentCasingInFileNames": true
+    "module": "AMD",
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "DOM",
+      "ES2022"
+    ]
   }
 }

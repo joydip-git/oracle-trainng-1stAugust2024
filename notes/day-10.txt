@@ -1,0 +1,52 @@
+module => API to export members of a JS file to another JS file, so that the other JS file can import them
+
+module format:
+-------------------------------
+1. common js module format:(used by default by node js)
+export => module.exports={ prop1:member1, prop2:member2,....}
+import => const refToExportsObj = require('module-path')
+
+2. Asynchronous Module Definition (AMD) format
+
+define('utility',[]){
+	const add = ...
+	const sub=...
+	module.exports.addFn = add
+}
+
+define('index',['./utility']){
+	
+}
+
+3. Universal Module Definition (UMD) format 
+require('utility',[]){
+	const add = ...
+	const sub=...
+	module.exports.addFn = add
+}
+
+4. ES6 module format:
+export => export const add =....
+import => import { add } from './utility'
+
+5. IIFE => Immediately Invoked Function Expression
+
+(
+	function(){
+		const add =...
+		....
+	}
+)();
+
+
+module loader: which understands a module format and accordingly resolves dependencies and load the files in the runtime
+----------------------------------
+1. require js (understands AMD)
+2. system js
+3. common js
+
+
+
+
+
+
