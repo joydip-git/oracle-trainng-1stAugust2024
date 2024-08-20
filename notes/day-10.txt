@@ -53,6 +53,16 @@ module loader: which understands a module format and accordingly resolves depend
 6. templated string
 7. promise api
 
+web component
+
+global installation of create-react-app:
+>npm i create-react-app --location=global
+
+create react app:
+>create-react-app first-react-app --template typescript
+
+without installing create-react-app:
+>npx create-react-app first-react-app --template typescript
 
 
 
