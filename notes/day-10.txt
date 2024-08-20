@@ -45,6 +45,21 @@ module loader: which understands a module format and accordingly resolves depend
 2. system js
 3. common js
 
+1. let and const keywords
+2. class, constructor, super and extends keywords
+3. import and export statement (ES6 module feature)
+4. spread and rest operator
+5. object destructuring
+6. templated string
+7. promise api
+
+
+
+
+
+
+
+
 
 
 
