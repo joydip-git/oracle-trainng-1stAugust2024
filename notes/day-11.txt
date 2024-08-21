@@ -1,0 +1,13 @@
+React JS:
+	Root component:
+		App.tsx
+
+	bootstrapper (start-up) file:
+		index.tsx
+
+			a. called the root component, which returns a React Element containing application design
+			b. fetch the placeholder HTML element (a div) from HTML file
+			c. treated that placeholder as a root element for React JS, by calling createRoot() method from 'react-fom/client' package and passing the HTML element
+			d. called the "render" method of that root element (of type Root) and passed the React element as returned by root component
+
+			Note: the "render()" method of the root (of type Root) creates HTML elements from the React element as returned by the root component. 	this technique is known as "mounting".
