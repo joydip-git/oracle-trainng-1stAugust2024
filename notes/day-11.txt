@@ -11,3 +11,13 @@ React JS:
 			d. called the "render" method of that root element (of type Root) and passed the React element as returned by root component
 
 			Note: the "render()" method of the root (of type Root) creates HTML elements from the React element as returned by the root component. 	this technique is known as "mounting".
+
+React hooks:
+APIs i.e. some functions, whose name has a prefix "use"
+
+
+
+
+
+
+

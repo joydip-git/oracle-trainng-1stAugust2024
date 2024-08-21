@@ -1,10 +1,12 @@
 import { createRoot } from "react-dom/client";
 import App from "./components/app/App";
+import { StrictMode } from "react";
 
 
 createRoot(
     document.getElementById('root') as HTMLElement
 ).render(<App />)
+console.log('mounted...');
 
 /*
 //called the root component, which returns a React Element containing application design
