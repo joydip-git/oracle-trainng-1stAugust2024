@@ -1,0 +1,36 @@
+GET http://localhost:3001/products
+
+###
+GET http://localhost:3001/products/1
+
+###
+POST http://localhost:3001/products
+Content-Type: application/json
+
+{
+    "id": "6",
+    "productName": "Video Game Controller",
+    "productCode": "GMG-0042",
+    "releaseDate": "October 15, 2015",
+    "description": "Standard two-button video game controller",
+    "price": 400,
+    "starRating": 4.5,
+    "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+}
+
+###
+PUT http://localhost:3001/products/6
+Content-Type: application/json
+
+{    
+    "productName": "Video Game Controller",
+    "productCode": "GMG-0042",
+    "releaseDate": "October 15, 2015",
+    "description": "Standard two-button video game controller",
+    "price": 4500,
+    "starRating": 4.2,
+    "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+}
+
+###
+DELETE http://localhost:3001/products/6
