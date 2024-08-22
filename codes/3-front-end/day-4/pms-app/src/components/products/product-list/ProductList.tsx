@@ -1,11 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Product } from "../../../models/product"
 import { getProducts } from "../../../services/productservice"
 import ProductRow from "../product-row/ProductRow"
 import './ProductList.css'
 
 const ProductList = () => {
-    const [productRecords, setProductRecords] = useState<Product[]>(getProducts())
+    const [productRecords, setProductRecords] = useState<Product[]>([])
+
+    useEffect(
+        () => {
+            getProducts()
+                .then(
+                    (resp) => {
+                        setProductRecords(resp.data)
+                    },
+                    () => { }
+                )
+        },
+        []
+    )
     return (
         <>
             <h2 className="header-style">

@@ -23,5 +23,43 @@ DELETE 		http://localhost:3001/products/id		id(route)								{}(deleted obj)
 a. fetch() API (broswer API)
 b. 3rd party (such as axios)
 
+//1. the callback will be executed in every render
+useEffect(
+	()=>{
+			//side-effect
+			file.read().then(()=>{})	
+			//update the state
+
+			const finalizer = () => {
+				file.close()
+			}
+			return finalizer
+	}
+)
+
+return design
+
+//2. the callback will be executed only if the factor(s) in the dependency list changes
+useEffect(
+	()=>{ 
+	//code
+	return ()=>{}
+	},
+	[f1,f2,...]
+)
+
+//3. the callback will be executed only ONE TIME in the life-cycle of the component 
+useEffect(
+	()=>{},
+	[]
+)
+
+
+
+
+
+
+
+
 
 
