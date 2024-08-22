@@ -9,6 +9,7 @@ const ProductList = () => {
 
     useEffect(
         () => {
+
             getProducts()
                 .then(
                     (resp) => {
