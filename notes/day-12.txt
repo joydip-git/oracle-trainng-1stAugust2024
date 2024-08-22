@@ -1,0 +1,27 @@
+backend description:
+
+http method		url											input						response
+-------------------------------------------------------------------------------------------------
+1. get all products:
+GET 			http://localhost:3001/products			NA										[{},{},....]
+
+2. get a product:
+GET 			http://localhost:3001/products/id		id(route)								{}
+
+3. add a product:
+POST 			http://localhost:3001/products			product(req body)					{} (added obj)
+
+4. update a product:
+PUT 			http://localhost:3001/products/id		id(route),product(req body)		{} (updated obj)
+
+5. delet a product:
+DELETE 		http://localhost:3001/products/id		id(route)								{}(deleted obj)
+
+
+1. client-side app must have some mechanism to send request through HTTP protocol and its methods
+
+a. fetch() API (broswer API)
+b. 3rd party (such as axios)
+
+
+
