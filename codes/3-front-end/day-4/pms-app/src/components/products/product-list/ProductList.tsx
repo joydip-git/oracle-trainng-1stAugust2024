@@ -26,7 +26,7 @@ const ProductList = () => {
                     {
                         productRecords.map(
                             (p) => {
-                                return <ProductRow productInfo={p} key={p.productId} />
+                                return <ProductRow productInfo={p} key={p.id} />
                             }
                         )
                     }

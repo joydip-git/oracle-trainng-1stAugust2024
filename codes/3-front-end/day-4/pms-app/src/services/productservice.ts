@@ -1,8 +1,12 @@
+import axios from "axios"
 import { Product } from "../models/product"
-import { products } from "../repository/products"
+//import { products } from "../repository/products"
+
+const url = 'http://localhost:3001/products'
 
 export const getProducts = () => {
-    return [...products]
+    //return [...products]
+    return axios.get<Product[]>(url,{headers:{Authorization:'token'}})
 }
 export const getProduct = (id: number) => {
 
