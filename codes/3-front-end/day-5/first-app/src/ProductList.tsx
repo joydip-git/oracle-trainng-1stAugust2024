@@ -1,10 +1,24 @@
-import { useState, useEffect } from 'preact/hooks'
+import { useState, useEffect, useContext } from 'preact/hooks'
+import ListItem from './ListItem'
+import ColorContext, { ColorContextType } from './color-context'
 
 const ProductList = () => {
 
     const [products, setProducts] = useState([])
     const [errorInfo, setErrorInfo] = useState('')
     const [loadingComplete, setLoadingComplete] = useState(false)
+
+    const { colorName, changeColorHandler } = useContext(ColorContext)
+
+    const [color, setColor] = useState('grey')
+    const changeColor = (colorName: string) => {
+        setColor(colorName)
+    }
+
+    const initialConextData: ColorContextType = {
+        colorName: color,
+        changeColorHandler: changeColor
+    }
 
     const getData = async () => {
         try {
@@ -42,17 +56,29 @@ const ProductList = () => {
         design = <span>No records</span>
     } else {
         design = (
-            <ul>
-                {
-                    products.map(
-                        (p) => <li>{p.productName}</li>
-                    )
-                }
-            </ul>
+            <div style={{ backgroundColor: colorName }}>
+                <h2>All Products</h2>
+                <br />
+                <ul>
+                    {
+                        products.map(
+                            (p) => <ListItem product={p} key={p.id} />
+                        )
+                    }
+                </ul>
+            </div>
         )
     }
 
-    return design
+    return (
+        <ColorContext.Provider value={initialConextData}>
+            {
+                design
+            }
+            <br />
+            <button type='button' onClick={() => changeColorHandler('blue')}>Change PL color</button>
+        </ColorContext.Provider>
+    )
 }
 
 export default ProductList
