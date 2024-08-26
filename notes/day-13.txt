@@ -1,0 +1,61 @@
+OJET:
+1. architecture patterns:
+	a. MV-VM (Model View ViewModel) => Knockout JS and JS/TS
+	b. VDOM architecture => Preact and TypeScript
+
+2. CLI tool: OJET CLI
+A. install ojet-cli
+	a. npm i @oracle/ojet-cli@16.1.0 --location=global
+	b. ojet create <app name> --template=basic --vdom
+
+or use package runner
+B. npx @oracle/ojet-cli@16.1.0 create <app name> --template=basic --vdom
+
+3. running the app in dev mode:
+	a. if ojet-cli is installed:
+		>ojet serve
+	b. using package runner:
+		>npx @oracle/ojet-cli@16.1.0 serve
+
+4. createing production build:
+	a. if ojet-cli is installed:
+		>ojet serve
+	b. using package runner:
+		>npx @oracle/ojet-cli@15.1.0 serve
+
+table component
+
+View:(design)
+<table>
+</table>
+
+code: ViewModel
+//fetch data (by calling fetchAndSortProducts())
+//display the data in the design (only name, price, rating and image)
+
+
+view: (design)
+<select>
+	<option>--select--</option>
+	<option>{productName}</option>
+</select>
+
+code:
+//fetch data (by calling fetchAndSortProducts())
+//display the product's name in the design (in select element)
+
+
+model:
+
+models:
+	product model
+
+service code:
+	fetchAndSortProducts() => getProducts() from dao
+
+dao code:
+	getProducts() => sends an HTTP GET request to fetch data from RESTful API server
+
+
+
+
