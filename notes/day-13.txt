@@ -23,6 +23,21 @@ B. npx @oracle/ojet-cli@16.1.0 create <app name> --template=basic --vdom
 	b. using package runner:
 		>npx @oracle/ojet-cli@15.1.0 serve
 
+
+RESTDataProvider fetch errors:
+	=> FetchErrorDetail<K,D>
+	=> FetchResponseErrorDetail<K,D>
+
+if the response (related to error), has "response" property, then the error is of type RESTDataProvider.FetchResponseErrorDetail
+
+if the response (related to error), do not have "response" property, then the error is of type RESTDataProvider.FetchErrorDetail
+
+find out by writing this code:
+error:(e:RESTDataProvider.FetchResponseErrorDetail<K,D>|RESTDataProvider.FetchErrorDetail<K,D>)=>{
+		if(e.hasOwnProperty('response')....
+}
+ 
+
 table component
 
 View:(design)
