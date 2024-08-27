@@ -18,6 +18,7 @@ public class App {
         try {
             // 1. load hibernate configuration file
             configuration = new Configuration();
+            configuration.configure();
 
             // 2. creating SessionFactory from loaded metadata
             factory = configuration.buildSessionFactory();
