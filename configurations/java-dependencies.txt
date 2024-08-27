@@ -23,7 +23,7 @@ Spring => Context package:
     <version>6.1.11</version>
 </dependency>
 
-Hibernate and Spring Integration:
+
 Hibernate core:
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
@@ -33,6 +33,7 @@ Hibernate core:
     <type>pom</type>
 </dependency>
 
+Hibernate and Spring Integration:
 Spring ORM:
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 <dependency>
