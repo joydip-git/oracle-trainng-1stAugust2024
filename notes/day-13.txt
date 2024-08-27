@@ -34,7 +34,7 @@ if the response (related to error), do not have "response" property, then the er
 
 find out by writing this code:
 error:(e:RESTDataProvider.FetchResponseErrorDetail<K,D>|RESTDataProvider.FetchErrorDetail<K,D>)=>{
-		if(e.hasOwnProperty('response')....
+		if(e.hasOwnProperty('response'))....
 }
  
 
