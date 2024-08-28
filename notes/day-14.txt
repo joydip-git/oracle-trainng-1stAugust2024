@@ -1,0 +1,36 @@
+1. create the project
+	=> maven -> maven-quickstart-archetype
+
+2. add dependencies in pom.xml
+	a. Oracle JDBC (8/11)
+	b. Hibernate Core
+
+3. create persistent class(s)
+
+table plan
+users => userid(number - pk), username(varchar)
+tasks => taksid (number - pk),title (varchar), completed (boolean), userid (fk -> userid of users)
+
+POJO plan:
+now =>
+User => userId(int), userName(string)
+
+later=>
+Task => taskId(int), title(string), completed(boolean),userId(int), userInfo (User)
+
+4. create mapping file (src>main>java)
+5. create hibernate configuration file (src>main>java)
+6. code
+
+interface DaoContract
+	
+class UserDao implements DaoContract
+
+Use UserDao methods from main() method
+
+
+
+
+
+
+
