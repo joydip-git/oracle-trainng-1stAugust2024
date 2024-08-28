@@ -4,26 +4,14 @@ import java.io.Serializable;
 import java.util.List;
 
 //import org.apache.commons.dbcp2.BasicDataSource;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.hibernateapps.models.User;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
+public class UserRepository implements RepositoryContract<User> {
 
-public class UserRepository implements RepositoryContract<User>, AutoCloseable {
-
-    // private SessionFactory factory;
     private HibernateTemplate template;
-
-    // public UserRepository(SessionFactory factory) {
-    // this.factory = factory;
-    // }
 
     public UserRepository(HibernateTemplate template) {
         this.template = template;
@@ -95,11 +83,4 @@ public class UserRepository implements RepositoryContract<User>, AutoCloseable {
             throw e;
         }
     }
-
-    @Override
-    public void close() throws Exception {
-        if (factory != null)
-            factory.close();
-    }
-
 }

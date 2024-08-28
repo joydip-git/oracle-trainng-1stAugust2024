@@ -28,8 +28,13 @@
         </property>
     </bean>
 
+    <bean id="templateBean" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <!-- <property name="sessionFactory" ref="repoBeanFactory"></property> -->
+        <constructor-arg name="sessionFactory" ref="repoBeanFactory" />
+    </bean>
+
     <bean id="userRepoBean" class="com.hibernateapps.repository.UserRepository">
-        <constructor-arg name="factory" ref="repoBeanFactory"></constructor-arg>
+        <constructor-arg name="template" ref="templateBean"></constructor-arg>
     </bean>
 
 </beans>
