@@ -2,6 +2,7 @@ package com.hibernateapps.repository;
 
 import java.util.List;
 
+//import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,7 +23,6 @@ public class UserRepository implements RepositoryContract<User>, AutoCloseable {
 
     @Override
     public boolean add(User data) {
-
         Transaction transaction = null;
         try (Session session = factory.openSession()) {
             transaction = session.beginTransaction();
