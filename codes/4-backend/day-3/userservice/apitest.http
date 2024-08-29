@@ -1,0 +1,4 @@
+POST http://localhost:9001/api/users/add?name=joydip&loc=bangalore
+
+###
+GET http://localhost:9001/api/users

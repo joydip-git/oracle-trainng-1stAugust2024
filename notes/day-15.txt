@@ -1,0 +1,127 @@
+springboot:
+Spring module which provides you Rapid Application Development (RAD) features at the top of the Spring framework.
+
+spring framework + embedded HTTP servers (Tomcat, Jetty) - XML (bean) configuration = Springboot
+
+It provides you DI 
+It provides powerful database transaction facilities
+It simplifies integration with other Java frameworks like JPA/Hibernate ORM/ Struts, etc...
+It is created keeping microservices in mind
+It reduces the cost and the timme for development (RAD)
+
+Spring sister projects:
+	- Spring Data, Spring Batch, Spring Social, Dpring Security etc.
+
+Roadmap:								
+	Java => Data Access (JDBC) => RESTful Service =>  Spring framework (Core with DI, Security, JPA)=> Hibrenate => Springboot
+
+Springboot Architecture:
+	Presentation Layer <=> Business Layer <=> Persistence Layer <=> Database
+
+SpringBoot Annotations:
+They are form of metadata about your spring application.
+@SpringBootApplication: It encapsulates the following...
+	@SpringBootConfiguration: It implies that the class provides Spring Boot application configuration.
+	It's an alternative to @Configuration annotation of Spring framework
+	@EnableAutoConfiguration
+	@ComponentScan
+
+//version:1
+@SpringBootApplication
+public class FirstappApplication{
+	public static void main(String[] args){
+			
+	   }
+}
+
+@Service
+public class Business{
+	@Autowired
+	private Dao dao;
+}
+
+@Repository
+public class Dao{
+}
+
+//version: 2
+@SpringBootConfiguration
+public class FirstappApplication{
+
+		public static void main(String[] args){
+			
+	   }
+		@Bean
+		public Dao dao(){
+			return new Dao();
+		}
+		@Bean
+		@Autowired
+		public Business business(Dao dao){
+			return new Business(dao);
+		}
+}
+
+//version:3
+@EnableAutoConfiguration
+@SpringBootConfiguration
+public class FirstappApplication{
+
+		public static void main(String[] args){
+			
+	   }		
+}
+
+@Service
+public class Business{
+	@Autowired
+	private Dao dao;
+}
+
+@Repository
+public class Dao{
+}
+
+//version: 4 (with @ComponentScan)
+@Configuration
+@ComponentScan
+public class FirstappApplication{
+
+		public static void main(String[] args){
+			
+	   }		
+}
+
+@Service
+public class Business{
+	@Autowired
+	private Dao dao;
+}
+
+@Repository
+public class Dao{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
