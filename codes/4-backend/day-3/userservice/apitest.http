@@ -1,4 +1,10 @@
-POST http://localhost:9001/api/users/add?name=joydip&loc=bangalore
+POST http://localhost:9001/api/users/add
+Content-Type: application/json
+
+{
+    "userId":5,
+    "userName":"suresh"
+}
 
 ###
 GET http://localhost:9001/api/users
