@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import oracle.springboot.apps.userservice.models.User;
-import oracle.springboot.apps.userservice.repository.UserRepository;
+import oracle.springboot.apps.userservice.services.UserServiceManager;
 
 @RestController
 @RequestMapping(path = "api")
 public class UserController {
 
     @Autowired
-    private UserRepository repository;
+    private UserServiceManager service;
 
     @GetMapping(path = "users", produces = "application/json")
     public ResponseEntity<List<User>> getUsers() {
         try {
-            List<User> all = repository.getAll();
+            List<User> all = service.getAll();
             // pass Optional<T> to of() method
             return ResponseEntity.of(Optional.of(all));
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public class UserController {
     @GetMapping(path = "users/{id}", produces = "application/json")
     public ResponseEntity<User> getUser(@PathVariable(name = "id") int id) {
         try {
-            User found = repository.get(id);
+            User found = service.get(id);
             if (found != null) {
                 return ResponseEntity.ok(found);
             } else
@@ -59,8 +59,8 @@ public class UserController {
     public ResponseEntity<Object> addUser(@RequestBody User user) {
         try {
             System.out.println(user);
-            boolean status = repository.add(user);
-            if (status) {
+            User added = service.add(user);
+            if (added != null) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
                         .path("/{id}")
@@ -86,7 +86,7 @@ public class UserController {
     @DeleteMapping(path = "users/delete/{id}", produces = "application/json")
     public ResponseEntity<Object> deleteUser(@PathVariable(name = "id") int id) {
         try {
-            boolean status = repository.delete(id);
+            boolean status = service.delete(id);
             if (status) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
@@ -111,8 +111,8 @@ public class UserController {
     @PutMapping(path = "users/update/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable(name = "id") int id) {
         try {
-            boolean status = repository.update(id, user);
-            if (status) {
+            User updated = service.update(id, user);
+            if (updated != null) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
                         .buildAndExpand()
@@ -132,17 +132,4 @@ public class UserController {
                     .build();
         }
     }
-
-    // @PostMapping(path = "users/add")
-    // public String addUser(@PathParam(value = "name") String name,
-    // @PathParam(value = "loc") String loc) {
-    // System.out.println(name + " " + loc);
-    // return repository.add(name) ? name : "could not add";
-    // }
-    // @PostMapping(path = "users/add/{name}/location/{loc}")
-    // public String addUser(@PathVariable(name = "name") String name,
-    // @PathVariable(name = "loc") String loc) {
-    // System.out.println(name + " " + loc);
-    // return repository.add(name) ? name : "could not add";
-    // }
 }
