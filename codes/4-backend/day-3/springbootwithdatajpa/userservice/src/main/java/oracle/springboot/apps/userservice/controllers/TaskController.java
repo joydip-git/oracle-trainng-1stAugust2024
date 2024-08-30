@@ -26,6 +26,7 @@ import oracle.springboot.apps.userservice.models.User;
 @RestController
 @RequestMapping(path = "api/tasks")
 public class TaskController {
+
     @Autowired
     private TaskServiceManager taskService;
 

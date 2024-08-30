@@ -1,0 +1,8 @@
+Microservices:
+https://www.geeksforgeeks.org/microservices/
+
+Virtual Thread:
+https://medium.com/@RamLakshmanan/java-virtual-threads-easy-introduction-44d96b8270f8
+
+Microprofile
+https://www.ibm.com/blog/migrate-java-microservices-from-spring-to-microprofile-p2/

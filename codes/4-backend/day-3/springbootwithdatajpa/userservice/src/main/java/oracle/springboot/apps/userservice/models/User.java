@@ -1,15 +1,13 @@
 package oracle.springboot.apps.userservice.models;
 
-import java.io.Serializable;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 // import lombok.AllArgsConstructor;
 // import lombok.Builder;
@@ -32,7 +30,7 @@ public class User {
     @Column(name = "user_id")
     private int userId;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     // @OneToMany(cascade = CascadeType.ALL)
     // @JoinColumn(name = "user_id")
     private List<Task> tasks;
