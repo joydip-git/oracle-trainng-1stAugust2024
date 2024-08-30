@@ -2,8 +2,7 @@ package oracle.springboot.apps.userservice.controllers;
 
 import java.net.URI;
 import java.util.List;
-
-import org.apache.el.stream.Optional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import oracle.springboot.apps.userservice.models.User;
 import oracle.springboot.apps.userservice.services.TaskServiceManager;
 import oracle.springboot.apps.userservice.models.Task;
 
