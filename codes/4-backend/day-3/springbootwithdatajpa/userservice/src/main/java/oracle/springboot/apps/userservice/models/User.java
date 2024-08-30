@@ -1,5 +1,6 @@
 package oracle.springboot.apps.userservice.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,10 +18,12 @@ import jakarta.persistence.Table;
 // @Data
 // @Builder
 public class User {
+    @Column(name = "user_name")
     private String userName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int userId;
 
     public User() {
