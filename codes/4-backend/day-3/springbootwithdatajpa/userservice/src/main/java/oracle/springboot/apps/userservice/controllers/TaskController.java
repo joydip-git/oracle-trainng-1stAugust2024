@@ -2,11 +2,11 @@ package oracle.springboot.apps.userservice.controllers;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
+
+import org.apache.el.stream.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,23 +16,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import oracle.springboot.apps.userservice.models.User;
-import oracle.springboot.apps.userservice.services.UserServiceManager;
+import oracle.springboot.apps.userservice.services.TaskServiceManager;
+import oracle.springboot.apps.userservice.models.Task;
 
 @RestController
-@RequestMapping(path = "api/users")
-public class UserController {
-
+@RequestMapping(path = "api/tasks")
+public class TaskController {
     @Autowired
-    private UserServiceManager service;
+    private TaskServiceManager service;
 
     @GetMapping(path = "", produces = "application/json")
-    public ResponseEntity<List<User>> getUsers() {
+    public ResponseEntity<List<Task>> getTasks() {
         try {
-            List<User> all = service.getAll();
+            List<Task> all = service.getAll();
             // pass Optional<T> to of() method
             return ResponseEntity.of(Optional.of(all));
         } catch (Exception e) {
@@ -43,9 +43,9 @@ public class UserController {
     }
 
     @GetMapping(path = "{id}", produces = "application/json")
-    public ResponseEntity<User> getUser(@PathVariable(name = "id") int id) {
+    public ResponseEntity<Task> getTask(@PathVariable(name = "id") int id) {
         try {
-            User found = service.get(id);
+            Task found = service.get(id);
             if (found != null) {
                 return ResponseEntity.ok(found);
             } else
@@ -56,16 +56,16 @@ public class UserController {
     }
 
     @PostMapping(path = "add", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Object> addUser(@RequestBody User user) {
+    public ResponseEntity<Object> addTask(@RequestBody Task task) {
         try {
-            System.out.println(user);
-            User added = service.add(user);
+            System.out.println(task);
+            Task added = service.add(task);
             if (added != null) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
                         .path("/{id}")
                         .buildAndExpand(
-                                user.getUserId())
+                                task.getUserId())
                         .toUri();
 
                 return ResponseEntity
@@ -84,7 +84,7 @@ public class UserController {
     }
 
     @DeleteMapping(path = "delete/{id}", produces = "application/json")
-    public ResponseEntity<Object> deleteUser(@PathVariable(name = "id") int id) {
+    public ResponseEntity<Object> deleteTask(@PathVariable(name = "id") int id) {
         try {
             boolean status = service.delete(id);
             if (status) {
@@ -109,9 +109,9 @@ public class UserController {
     }
 
     @PutMapping(path = "update/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable(name = "id") int id) {
+    public ResponseEntity<Object> updateTask(@RequestBody Task task, @PathVariable(name = "id") int id) {
         try {
-            User updated = service.update(id, user);
+            Task updated = service.update(id, task);
             if (updated != null) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
@@ -132,4 +132,5 @@ public class UserController {
                     .build();
         }
     }
+
 }
