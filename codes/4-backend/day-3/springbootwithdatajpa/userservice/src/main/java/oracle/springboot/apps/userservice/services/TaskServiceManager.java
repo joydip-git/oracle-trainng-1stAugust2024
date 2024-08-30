@@ -27,9 +27,6 @@ public class TaskServiceManager implements ServiceContract<Task, Integer> {
             found.setTitle(data.getTitle());
         }
         found.setCompleted(data.isCompleted());
-        if (Objects.nonNull(found.getUserId())) {
-            found.setUserId(data.getUserId());
-        }
         return repository.save(found);
     }
 

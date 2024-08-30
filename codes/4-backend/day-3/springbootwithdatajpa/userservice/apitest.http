@@ -2,7 +2,7 @@ POST http://localhost:9001/api/users/add
 Content-Type: application/json
 
 {
-    "userName":"joydip"
+    "userName":"sunil"
 }
 ###
 PUT http://localhost:9001/api/users/update/1
@@ -20,3 +20,31 @@ GET http://localhost:9001/api/users
 
 ###
 GET http://localhost:9001/api/users/2
+
+
+###
+POST http://localhost:9001/api/tasks/add/1
+Content-Type: application/json
+
+{
+    "title":"learn springboot",
+    "completed":false,
+    "user":null
+}
+###
+PUT http://localhost:9001/api/users/update/1
+Content-Type: application/json
+
+{
+    "userName":"anil kumar"
+}
+
+###
+DELETE http://localhost:9001/api/users/delete/3
+
+###
+GET http://localhost:9001/api/users
+
+###
+GET http://localhost:9001/api/users/2
+

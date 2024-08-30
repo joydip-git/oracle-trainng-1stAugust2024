@@ -19,18 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import oracle.springboot.apps.userservice.services.TaskServiceManager;
+import oracle.springboot.apps.userservice.services.UserServiceManager;
 import oracle.springboot.apps.userservice.models.Task;
+import oracle.springboot.apps.userservice.models.User;
 
 @RestController
 @RequestMapping(path = "api/tasks")
 public class TaskController {
     @Autowired
-    private TaskServiceManager service;
+    private TaskServiceManager taskService;
+
+    @Autowired
+    private UserServiceManager userService;
 
     @GetMapping(path = "", produces = "application/json")
     public ResponseEntity<List<Task>> getTasks() {
         try {
-            List<Task> all = service.getAll();
+            List<Task> all = taskService.getAll();
             // pass Optional<T> to of() method
             return ResponseEntity.of(Optional.of(all));
         } catch (Exception e) {
@@ -43,7 +48,7 @@ public class TaskController {
     @GetMapping(path = "{id}", produces = "application/json")
     public ResponseEntity<Task> getTask(@PathVariable(name = "id") int id) {
         try {
-            Task found = service.get(id);
+            Task found = taskService.get(id);
             if (found != null) {
                 return ResponseEntity.ok(found);
             } else
@@ -53,26 +58,37 @@ public class TaskController {
         }
     }
 
-    @PostMapping(path = "add", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Object> addTask(@RequestBody Task task) {
+    @PostMapping(path = "add/{userId}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<Object> addTask(@RequestBody Task task,
+            @PathVariable(name = "userId", required = false) Integer userId) {
         try {
             System.out.println(task);
-            Task added = service.add(task);
-            if (added != null) {
-                URI location = ServletUriComponentsBuilder
-                        .fromCurrentRequest()
-                        .path("/{id}")
-                        .buildAndExpand(
-                                task.getUserId())
-                        .toUri();
+            if (userId != null) {
+                User existingUser = userService.get(userId);
+                existingUser.getTasks().add(task);
+                task.setUser(existingUser);
+                Task added = taskService.add(task);
+                if (added != null) {
+                    URI location = ServletUriComponentsBuilder
+                            .fromCurrentRequest()
+                            .path("/{id}")
+                            .buildAndExpand(
+                                    task.getId())
+                            .toUri();
 
+                    return ResponseEntity
+                            .created(location)
+                            .build();
+                } else
+                    return ResponseEntity
+                            .internalServerError()
+                            .build();
+            } else {
                 return ResponseEntity
-                        .created(location)
+                        .status(
+                                HttpStatus.NO_CONTENT)
                         .build();
-            } else
-                return ResponseEntity
-                        .internalServerError()
-                        .build();
+            }
         } catch (Exception e) {
             return ResponseEntity
                     .status(
@@ -84,7 +100,7 @@ public class TaskController {
     @DeleteMapping(path = "delete/{id}", produces = "application/json")
     public ResponseEntity<Object> deleteTask(@PathVariable(name = "id") int id) {
         try {
-            boolean status = service.delete(id);
+            boolean status = taskService.delete(id);
             if (status) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()
@@ -109,7 +125,7 @@ public class TaskController {
     @PutMapping(path = "update/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Object> updateTask(@RequestBody Task task, @PathVariable(name = "id") int id) {
         try {
-            Task updated = service.update(id, task);
+            Task updated = taskService.update(id, task);
             if (updated != null) {
                 URI location = ServletUriComponentsBuilder
                         .fromCurrentRequest()

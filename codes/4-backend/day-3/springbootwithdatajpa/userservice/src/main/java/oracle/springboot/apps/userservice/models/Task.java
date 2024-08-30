@@ -1,10 +1,15 @@
 package oracle.springboot.apps.userservice.models;
 
+import java.io.Serializable;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -19,21 +24,20 @@ public class Task {
 
     private String title;
     private boolean completed;
-    // foreign key betwen the tables
-    private int userId;
 
-    @OneToOne(mappedBy = "userId")
+    @ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    // @OneToOne(targetEntity = User.class)
+    // @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     public Task() {
     }
 
-    public Task(int id, String title, boolean completed, int userId, User user) {
+    public Task(int id, String title, boolean completed, int userId) {
         this.id = id;
         this.title = title;
         this.completed = completed;
-        this.userId = userId;
-        this.user = user;
     }
 
     public int getId() {
@@ -60,14 +64,6 @@ public class Task {
         this.completed = completed;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     public User getUser() {
         return user;
     }
@@ -78,7 +74,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task [id=" + id + ", title=" + title + ", completed=" + completed + ", userId=" + userId + ", user="
+        return "Task [id=" + id + ", title=" + title + ", completed=" + completed + ", user="
                 + user + "]";
     }
 
