@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.helidon.applications</groupId>
         <artifactId>helidon-mp</artifactId>
         <version>4.1.0</version>
-        <relativePath/>
+        <relativePath />
     </parent>
     <groupId>com.helidonapps</groupId>
     <artifactId>databasedemo</artifactId>
@@ -68,6 +68,59 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+            <version>23.5.0.24.07</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <!-- hikacri CP-->
+            <groupId>io.helidon.integrations.cdi</groupId>
+            <artifactId>helidon-integrations-cdi-datasource-hikaricp</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <!-- db intergration with helidon -->
+            <groupId>io.helidon.integrations.db</groupId>
+            <artifactId>ojdbc</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- transaction (JTA) integration -->
+        <dependency>
+            <groupId>jakarta.transaction</groupId>
+            <artifactId>jakarta.transaction-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.integrations.cdi</groupId>
+            <artifactId>helidon-integrations-cdi-jta-weld</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- JPA integration-->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.integrations.cdi</groupId>
+            <artifactId>helidon-integrations-cdi-jpa</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- hibernate integration-->
+        <dependency>
+            <groupId>io.helidon.integrations.cdi</groupId>
+            <artifactId>helidon-integrations-cdi-hibernate</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
