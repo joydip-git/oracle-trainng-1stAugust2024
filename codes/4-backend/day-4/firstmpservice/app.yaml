@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: firstmpservice
+  labels:
+    app: firstmpservice
+spec:
+  type: ClusterIP
+  selector:
+    app: firstmpservice
+  ports:
+    - name: tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: firstmpservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firstmpservice
+  template:
+    metadata:
+      labels:
+        app: firstmpservice
+        version: v1
+    spec:
+      containers:
+      - name: firstmpservice
+        image: firstmpservice
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

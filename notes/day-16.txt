@@ -1,1 +1,14 @@
 Helidon:
+A Java librarries for writing microservices.
+A fast performing library
+It is cloud-native and open source.
+This is an implementation of Elcipse Microprofile from Oracle
+
+Helidon flavors:
+1. SE (Standard Edition)
+	=> progrmmatical
+	=> fundamental set of APIs
+
+2. MP (Microprofile)
+	=> annotation-based
+	=> declarative style of dependency injection

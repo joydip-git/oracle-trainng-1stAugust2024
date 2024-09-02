@@ -6,6 +6,7 @@ https://medium.com/@RamLakshmanan/java-virtual-threads-easy-introduction-44d96b8
 
 Microprofile
 https://www.ibm.com/blog/migrate-java-microservices-from-spring-to-microprofile-p2/
+https://openliberty.io/docs/latest/microprofile.html#:~:text=At%20its%20foundation%2C%20MicroProfile%20provides,easy%20to%20consume%20REST%20services.
 
 Helidon labs:
 
