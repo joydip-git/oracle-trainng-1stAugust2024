@@ -28,11 +28,11 @@ public class UserRepository implements RepositoryContract<User, Integer> {
          * return manager.createQuery(query).getResultList();
          */
         try {
-            return manager.createNamedQuery("getAllUser", User.class).getResultList();
+            List<User> users = manager.createNamedQuery("getAllUser", User.class).getResultList();
+            return users;
         } catch (Exception e) {
             throw e;
         }
-
     }
 
     @Override

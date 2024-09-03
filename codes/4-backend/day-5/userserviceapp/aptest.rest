@@ -1,0 +1,22 @@
+GET http://localhost:8081/userapi/all
+
+###
+GET http://localhost:8081/userapi/get/4
+
+###
+POST  http://localhost:8081/userapi/add
+Content-Type: application/json
+
+{
+    "userName":"ramnath"
+}
+###
+PUT  http://localhost:8081/userapi/update/4
+Content-Type: application/json
+
+{
+    "userName":"vinod"
+}
+
+###
+DELETE  http://localhost:8081/userapi/delete/5

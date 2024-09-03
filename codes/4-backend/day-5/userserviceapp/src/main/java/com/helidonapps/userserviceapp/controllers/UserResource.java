@@ -8,7 +8,6 @@ import com.helidonapps.userserviceapp.repository.RepositoryContract;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
-import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.Consumes;
@@ -20,7 +19,6 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.Produces;
 
 @Path(value = "userapi")
-@Dependent
 public class UserResource {
 
     @Inject
@@ -30,12 +28,16 @@ public class UserResource {
     @Path("all")
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> fetchUsers() {
-
-        List<User> users = repository.getAll();
-        if (users.isEmpty()) {
-            throw new NotFoundException("no record");
+        try {
+            List<User> users = repository.getAll();
+            if (users.isEmpty()) {
+                throw new NotFoundException("no record");
+            }
+            return users;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new BadRequestException(e.getMessage());
         }
-        return users;
     }
 
     @GET
