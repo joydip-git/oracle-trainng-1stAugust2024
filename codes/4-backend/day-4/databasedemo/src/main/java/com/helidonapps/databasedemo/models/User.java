@@ -2,22 +2,28 @@ package com.helidonapps.databasedemo.models;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Access;
+import jakarta.persistence.AccessType;
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
-@Entity
+@Access(value = AccessType.PROPERTY)
+@Entity(name = "User")
 @Table(name = "users")
-public class User implements Serializable {
-    @Id
-    @Column(name = "user_id", nullable = false, updatable = false, insertable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+@NamedQueries({
+        @NamedQuery(name = "getAllUsers", query = "select u from User u"),
+        @NamedQuery(name = "getAnUser", query = "select u from User u where u.userId = :id")
+})
+public class User {
 
-    @Column(name = "user_name", nullable = false, updatable = true, insertable = true)
+    private int userId;
     private String userName;
 
     public User() {
@@ -28,6 +34,9 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
+    @Id
+    @Column(name = "user_id", nullable = false, updatable = false, insertable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getUserId() {
         return userId;
     }
@@ -36,6 +45,8 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
+    @Basic(optional = false)
+    @Column(name = "user_name", nullable = false, updatable = true, insertable = true)
     public String getUserName() {
         return userName;
     }

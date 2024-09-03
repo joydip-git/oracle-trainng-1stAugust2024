@@ -1,0 +1,145 @@
+A. for data access and RESTful API using helidon:
+------------------------------------------------
+1. connection pool, data source and its integration with helidon:
+-----------------------------------------------------------
+a. hikari cp:
+<dependency>
+    <groupId>io.helidon.integrations.cdi</groupId>
+    <artifactId>helidon-integrations-cdi-datasource-hikaricp</artifactId>
+    <scope>runtime</scope> 
+</dependency>
+
+b. oracle universal connection pool (ucp)
+<dependency>
+  <groupId>io.helidon.integrations.cdi</groupId>
+  <artifactId>helidon-integrations-cdi-datasource-ucp</artifactId>
+  <scope>runtime</scope> 
+</dependency>
+
+2. Driver for Oracle and its integration with helidon
+------------------------------------------------------------
+ <dependency>
+      <groupId>io.helidon.integrations.db</groupId>
+       	<artifactId>ojdbc</artifactId>
+      <scope>runtime</scope>
+</dependency>
+
+3. Transation and its integration with helidon:
+---------------------------------------------------------
+ <dependency>
+      <groupId>jakarta.transaction</groupId>
+      <artifactId>jakarta.transaction-api</artifactId>
+</dependency>
+ <dependency>
+      <groupId>io.helidon.integrations.cdi</groupId>
+          <artifactId>helidon-integrations-cdi-jta-weld</artifactId>
+           <scope>runtime</scope>
+ </dependency>
+
+
+4. JPA and its integration with Helidon:
+-----------------------------------------------
+<dependency>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
+        <scope>provided</scope> 
+</dependency>
+<dependency>
+        <groupId>io.helidon.integrations.cdi</groupId>
+        <artifactId>helidon-integrations-cdi-jpa</artifactId>
+        <scope>runtime</scope> 
+</dependency>
+
+
+5. A JPA provider (Hibernate) and its integration with helidon:
+----------------------------------------------------------
+<dependency>
+    <groupId>io.helidon.integrations.cdi</groupId>
+    <artifactId>helidon-integrations-cdi-hibernate</artifactId>
+    <scope>runtime</scope> 
+</dependency>
+
+6. Specifically for hibernate
+----------------------------------------------------
+<dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>runtime</scope>
+</dependency>
+
+7. XML and JSON Binding: (for RESTful API response type)
+-----------------------------------------------------------
+ <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+</dependency>
+ <dependency>
+            <groupId>jakarta.json.bind</groupId>
+            <artifactId>jakarta.json.bind-api</artifactId>
+  </dependency>
+
+8. JAX-WS/RS specifications:
+-------------------------------------------------
+<dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+</dependency>
+
+9. for DI:
+-----------------------------------------------
+<dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
+</dependency>
+
+10. annotation:
+----------------------------------------------------------
+ <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+
+11. for Jakarta EE integration with helidon:
+---------------------------------------------------------
+ <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+</dependency>
+
+
+files in Resources folder:
+------------------------------------
+1. mcroprofile-config.properties => all connection information will be here (for data source)
+2. beans.xml => annotation-based bean configuration
+3. persistnce.xml => will contain hibernate configuration, data source nmapping and entity mapping information etc.
+
+Code:
+----------------------------------
+1. Entitites or POJOs (annotated)
+2. Repository/Service class (dependent on DataSource type as mapped in persistence.xml)
+3. RESTful controller (resource class)
+
+Named DataSource configuration (as to be written in micorprofile-config.properties) file
+--------------------------------------------------------
+
+code version:
+DataSource userDataSource = new OracleDataSource();
+useDataSource.dataSource.setDriverClassName();
+useDataSource.dataSource.setDataSourceClassName();
+useDataSource.dataSource.setUrl();
+useDataSource.dataSource.setPassword();
+useDataSource.dataSource.setUserName();
+
+javax.sql.DataSource.userDataSource.dataSource.url=""
+javax.sql.DataSource.userDataSource.dataSource.user=""
+
+
+
+
+
+
+
+
+
+
+
