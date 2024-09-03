@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.helidonapps.userserviceapp.models.User;
 
+import jakarta.enterprise.context.Dependent;
 //import jakarta.enterprise.context.Dependent;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -59,6 +60,7 @@ public class UserRepository implements RepositoryContract<User, Integer> {
     }
 
     @Override
+    @Transactional(value = TxType.REQUIRED)
     public User update(Integer id, User data) {
         try {
             User user = manager.find(User.class, id);
@@ -73,6 +75,7 @@ public class UserRepository implements RepositoryContract<User, Integer> {
     }
 
     @Override
+    @Transactional(value = TxType.REQUIRED)
     public User delete(Integer id) {
         try {
             User user = manager.find(User.class, id);
