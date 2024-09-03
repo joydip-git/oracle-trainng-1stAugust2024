@@ -123,16 +123,24 @@ Named DataSource configuration (as to be written in micorprofile-config.properti
 --------------------------------------------------------
 
 code version:
-DataSource userDataSource = new OracleDataSource();
-useDataSource.dataSource.setDriverClassName();
-useDataSource.dataSource.setDataSourceClassName();
-useDataSource.dataSource.setUrl();
-useDataSource.dataSource.setPassword();
-useDataSource.dataSource.setUserName();
+
+@Bean
+public Datasource dataSource(){
+	HikariConfig config = new HikariConfig();
+	config.setDataSourceClassName("OracleDataSource");
+	config.setDriverClassName("");
+	config.setJdbcUrl("");
+	config.setUserName("");
+	config.setPassword("");
+	return new HikariDataSource(config);
+}
+
+
 
 javax.sql.DataSource.userDataSource.dataSource.url=""
 javax.sql.DataSource.userDataSource.dataSource.user=""
-
+javax.sql.DataSource.userDataSource.dataSource.password=""
+javax.sql.DataSource.userDataSource.dataSource.dataSourceClassName=""
 
 
 

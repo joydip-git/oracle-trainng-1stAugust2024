@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
-             version="3.1">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+    version="3.2">
 
     <persistence-unit name="UserPersistenceContext" transaction-type="JTA">
         <jta-data-source>userDataSource</jta-data-source>
-        <class>com.helidonapps.userserviceapp.Pokemon</class>
-        <class>com.helidonapps.userserviceapp.PokemonType</class>
+        <class>com.helidonapps.userserviceapp.models.User</class>
         <properties>
-            <property name="hibernate.column_ordering_strategy" value="legacy"/>
-            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/init_script.sql"/>
+            <property name="hibernate.column_ordering_strategy" value="legacy" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+            <!-- <property name="jakarta.persistence.sql-load-script-source"
+                value="META-INF/init_script.sql" /> -->
         </properties>
     </persistence-unit>
 </persistence>
