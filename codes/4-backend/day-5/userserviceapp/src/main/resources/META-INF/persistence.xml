@@ -7,6 +7,7 @@
     <persistence-unit name="UserPersistenceContext" transaction-type="JTA">
         <jta-data-source>userDataSource</jta-data-source>
         <class>com.helidonapps.userserviceapp.models.User</class>
+        <class>com.helidonapps.userserviceapp.models.Task</class>
         <properties>
             <property name="hibernate.column_ordering_strategy" value="legacy" />
             <property name="hibernate.hbm2ddl.auto" value="update" />

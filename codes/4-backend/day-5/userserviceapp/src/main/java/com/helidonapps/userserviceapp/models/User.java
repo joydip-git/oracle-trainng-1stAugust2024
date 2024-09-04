@@ -1,16 +1,20 @@
 package com.helidonapps.userserviceapp.models;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
 @Access(value = AccessType.PROPERTY)
 @Entity(name = "User")
@@ -23,6 +27,7 @@ public class User {
 
     private int userId;
     private String userName;
+    private List<Task> tasks;
 
     public User() {
     }
@@ -51,6 +56,16 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @JsonbTransient
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override

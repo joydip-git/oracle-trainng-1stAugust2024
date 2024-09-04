@@ -5,7 +5,6 @@ import java.util.List;
 import com.helidonapps.userserviceapp.models.User;
 
 import jakarta.enterprise.context.Dependent;
-//import jakarta.enterprise.context.Dependent;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;

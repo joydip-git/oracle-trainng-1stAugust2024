@@ -136,11 +136,11 @@ public Datasource dataSource(){
 }
 
 
+javax.sql.DataSource.userDataSource.dataSourceClassName=oracle.jdbc.pool.OracleDataSource
+javax.sql.DataSource.userDataSource.dataSource.url=jdbc:oracle:thin:@localhost:1521:orcl
+javax.sql.DataSource.userDataSource.dataSource.user=system
+javax.sql.DataSource.userDataSource.dataSource.password=Oracle2024
 
-javax.sql.DataSource.userDataSource.dataSource.url=""
-javax.sql.DataSource.userDataSource.dataSource.user=""
-javax.sql.DataSource.userDataSource.dataSource.password=""
-javax.sql.DataSource.userDataSource.dataSource.dataSourceClassName=""
 
 
 

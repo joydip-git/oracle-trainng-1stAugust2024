@@ -1,0 +1,38 @@
+what is Docker?
+1. engine
+	Docker Daemon => dockerd (docker engine)
+2. client
+	Docker Client => docker
+
+Docker Desktop is a s/w
+	=> docker client (docker) and docker engine (dockerd)
+	=> docker compose (client)
+	=> docker content trust
+	=> kubernetes
+	=> credential helper
+
+Docker Registries => it stores docker images
+	Docker Hub
+
+Docker Objects
+	=> images, containers, network, vloumes, plugins etc.
+
+	docker image:read-only template with instructions to create docker container
+	file: Dockerfile
+
+Docker container:
+	a runnable instance of the docker image.
+	it is self-contained, idependent, isolated and portable.
+
+Differenrence between VMs and containers?
+VM is entire O/S witbh its own Kernel, H/W drivers, programs, apps.
+containers are just an isolated processes witb all the files that it needs to run.
+
+Docker compose:
+	
+
+	
+
+
+
+

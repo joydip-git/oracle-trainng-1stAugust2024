@@ -77,5 +77,4 @@ public class Task {
         return "Task [id=" + id + ", title=" + title + ", completed=" + completed + ", user="
                 + user + "]";
     }
-
 }
